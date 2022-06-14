@@ -1,0 +1,31 @@
+.search__bar form {
+  display: flex;
+  border-radius: 100px;
+  border: 2px #fff solid;
+  width: 25%;
+}
+
+.search__bar--input {
+  padding: 10px 0 10px 20px;
+  flex: 1;
+  border: none;
+  background: 0 0;
+  color: #fff;
+  outline: none;
+}
+
+::placeholder {
+  color: #fff;
+}
+
+.search__bar--icon {
+  border: 3px #fff solid;
+  /* border-left: none; */
+  cursor: pointer;
+  border-radius: 100px;
+  width: 80px;
+}
+
+.search__bar--icon:hover {
+  background-color: #fdfff5;
+}
