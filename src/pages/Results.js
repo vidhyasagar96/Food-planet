@@ -15,15 +15,15 @@ const Results = () => {
 
   const categoryQuery = searchParams.get("c");
   const searchQuery = searchParams.get("s");
-
+  console.log(categoryQuery, searchQuery, meals);
   useEffect(() => {
     if (categoryQuery) {
-      setSearchInfo(`Category: ${categoryQuery}`);
+      setSearchInfo(`Category : ${categoryQuery}`);
       getMealsUsingCategory(categoryQuery);
     }
 
     if (searchQuery) {
-      setSearchInfo(`Results for: ${searchQuery}`);
+      setSearchInfo(`Results for : ${searchQuery.toLocaleLowerCase()}`);
       getMealsUsingSearch(searchQuery);
     }
     setLoading(false);
@@ -54,11 +54,10 @@ const Results = () => {
   let content;
   if (loading) {
     content = <h2>Loading...</h2>;
-    console.log("laoding");
+  }
+  if (meals === null || meals.length === 0) {
+    content = <h2>No results found</h2>;
   } else {
-    // if (meals.length === 0) {
-    //   content = <h2>No results found</h2>;
-    // } else {
     content = meals.map((meal) => {
       return (
         <Card
@@ -70,7 +69,6 @@ const Results = () => {
       );
     });
   }
-
   const onClickHandler = () => {
     navigate("/");
   };
